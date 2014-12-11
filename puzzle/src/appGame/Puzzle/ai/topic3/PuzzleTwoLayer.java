@@ -80,7 +80,7 @@ public class PuzzleTwoLayer {
 	private static boolean layer_move = false;
 	private static int mCurTime = (int) System.currentTimeMillis() - 3000000;
 	private static int mLastTime;
-	private static int sameImageView1, sameImageView2;
+	private static int sameImageView1, sameImageView2;  //比對雙擊物件
 	public PuzzleTwoLayer(int _x_count, int _y_count, Context _activity,
 			DialogInterface.OnClickListener _returnTitle) {// 建構式
 															// 從外部讀入參數
