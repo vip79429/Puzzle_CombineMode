@@ -1018,30 +1018,35 @@ public class PuzzleActivity extends Activity {
 			if(event.getAction() == MotionEvent.ACTION_UP) {
 				x2 = event.getX();
 				y2 = event.getY();
-				if(y1 - y2 > 50) {
-//					Toast.makeText(PuzzleActivity.this, "向上滑", Toast.LENGTH_SHORT).show();
-					if (x_count == 4 && specialMode == 2)
-						PuzzleTwoLayer.get_canMoveFullScreen(1);
-					else if (x_count != 4 || specialMode != 1)
-						PuzzleGame.get_canMoveFullScreen(1);
-				} else if(y2 - y1 > 50) {
-//					Toast.makeText(PuzzleActivity.this, "向下滑", Toast.LENGTH_SHORT).show();
-					if (x_count == 4 && specialMode == 2)
-						PuzzleTwoLayer.get_canMoveFullScreen(2);
-					else if (x_count != 4 || specialMode != 1)
-						PuzzleGame.get_canMoveFullScreen(2);
-				} else if(x1 - x2 > 50) {
-//					Toast.makeText(PuzzleActivity.this, "向左滑", Toast.LENGTH_SHORT).show();
-					if (x_count == 4 && specialMode == 2)
-						PuzzleTwoLayer.get_canMoveFullScreen(3);
-					else if (x_count != 4 || specialMode != 1)
-						PuzzleGame.get_canMoveFullScreen(3);
-				} else if(x2 - x1 > 50) {
-//					Toast.makeText(PuzzleActivity.this, "向右滑", Toast.LENGTH_SHORT).show();
-					if (x_count == 4 && specialMode == 2)
-						PuzzleTwoLayer.get_canMoveFullScreen(4);
-					else if (x_count != 4 || specialMode != 1)
-						PuzzleGame.get_canMoveFullScreen(4);
+				
+				if (Math.abs(y1 - y2) > Math.abs(x1 - x2)){
+					if(y1 - y2 > 50) {
+	//					Toast.makeText(PuzzleActivity.this, "向上滑", Toast.LENGTH_SHORT).show();
+						if (x_count == 4 && specialMode == 2)
+							PuzzleTwoLayer.get_canMoveFullScreen(1);
+						else if (x_count != 4 || specialMode != 1)
+							PuzzleGame.get_canMoveFullScreen(1);
+					} else if(y2 - y1 > 50) {
+	//					Toast.makeText(PuzzleActivity.this, "向下滑", Toast.LENGTH_SHORT).show();
+						if (x_count == 4 && specialMode == 2)
+							PuzzleTwoLayer.get_canMoveFullScreen(2);
+						else if (x_count != 4 || specialMode != 1)
+							PuzzleGame.get_canMoveFullScreen(2);
+					}
+				}else {
+					if(x1 - x2 > 50) {
+	//					Toast.makeText(PuzzleActivity.this, "向左滑", Toast.LENGTH_SHORT).show();
+						if (x_count == 4 && specialMode == 2)
+							PuzzleTwoLayer.get_canMoveFullScreen(3);
+						else if (x_count != 4 || specialMode != 1)
+							PuzzleGame.get_canMoveFullScreen(3);
+					}else if(x2 - x1 > 50) {
+	//					Toast.makeText(PuzzleActivity.this, "向右滑", Toast.LENGTH_SHORT).show();
+						if (x_count == 4 && specialMode == 2)
+							PuzzleTwoLayer.get_canMoveFullScreen(4);
+						else if (x_count != 4 || specialMode != 1)
+							PuzzleGame.get_canMoveFullScreen(4);
+					}
 				}
 			}
 		}

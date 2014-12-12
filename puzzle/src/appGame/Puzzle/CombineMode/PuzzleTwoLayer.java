@@ -449,7 +449,7 @@ public class PuzzleTwoLayer {
 				            
 				            int[] result = new int[] { 0, 0 };
 				    		int[] move_direction = new int[] { 0, 0 };
-				            if (!image_move && x - gyro_x > 4 && (block_red + 1) % x_count != 0){ //左
+				            if (x > gyro_x && !image_move && Math.abs(x - gyro_x) > 3 && (block_red + 1) % x_count != 0){ //左
 								result[0] = block_red + 1;
 								result[1] = 3;
 								move_direction[0] = 3;
@@ -458,7 +458,7 @@ public class PuzzleTwoLayer {
 								image_move = true;
 								gyroDelay ++;
 								puzzle_panel_red.removeView(iv_ok_red[result[0]]);
-				            }else if (!image_move && x - gyro_x < -4 && block_red % x_count != 0){ //右
+				            }else if (x < gyro_x && !image_move && Math.abs(x - gyro_x) > 3 && block_red % x_count != 0){ //右
 				            	result[0] = block_red - 1;
 								result[1] = 4;
 								move_direction[0] = 4;
@@ -467,7 +467,7 @@ public class PuzzleTwoLayer {
 								image_move = true;
 								gyroDelay ++;
 								puzzle_panel_red.removeView(iv_ok_red[result[0]]);
-				            }else if (!image_move && y - gyro_y < -3 && block_red + x_count <= x_count * y_count - 1){ //上
+				            }else if (y < gyro_y && !image_move && Math.abs(y - gyro_y) > 2.5 && block_red + x_count <= x_count * y_count - 1){ //上
 								result[0] = block_red + x_count;
 								result[1] = 1;
 								move_direction[1] = 1;
@@ -476,7 +476,7 @@ public class PuzzleTwoLayer {
 								image_move = true;
 								gyroDelay ++;
 								puzzle_panel_red.removeView(iv_ok_red[result[0]]);
-				            }else if (!image_move && z - gyro_z < -3 && block_red - x_count >= 0){ //下
+				            }else if (y > gyro_y && !image_move && Math.abs(y - gyro_y) > 2.5 && block_red - x_count >= 0){ //下
 								result[0] = block_red - x_count;
 								result[1] = 2;
 								move_direction[1] = 2;
