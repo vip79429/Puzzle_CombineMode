@@ -1,4 +1,4 @@
-Puzzle_TP3
+Puzzle_CombineMode
 ==========
 
-雙層拼圖
+所有模式的拼圖
