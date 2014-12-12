@@ -17,7 +17,6 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
-            android:layout_weight="1"
             android:text="請選擇拼圖的難易度:"
             android:textColor="#FFFFFF"
             android:textSize="18sp" />
@@ -26,7 +25,7 @@
             android:id="@+id/btn_3x3"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
+            android:layout_weight="1"
             android:background="@drawable/buttonlevel"
             android:text="初級(3╳3)" />
 
@@ -34,7 +33,7 @@
             android:id="@+id/btn_4x4"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
+            android:layout_weight="1"
             android:background="@drawable/buttonlevel"
             android:text="中級(4╳4)" />
 
@@ -42,9 +41,25 @@
             android:id="@+id/btn_5x5"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="4"
+            android:layout_weight="1"
             android:background="@drawable/buttonlevel"
             android:text="高級(5╳5)" />
+        
+        <Button
+            android:id="@+id/btn_trunbeads"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/buttonlevel"
+            android:text="轉珠模式" />
+        
+        <Button
+            android:id="@+id/btn_twolayer"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/buttonlevel"
+            android:text="雙層模式" />
     </LinearLayout>
 
     <RelativeLayout

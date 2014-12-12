@@ -23,7 +23,7 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ImageView.ScaleType;
-import appGame.Puzzle.ai.topic3.PuzzleActivity;
+import appGame.Puzzle.CombineMode.PuzzleActivity;
 
 public class ImageAdapter extends BaseAdapter {// private ArrayList<byte[]>
 												// dishImages = new

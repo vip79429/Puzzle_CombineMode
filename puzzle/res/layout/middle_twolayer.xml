@@ -121,11 +121,11 @@
             android:orientation="vertical" >
 
             <Button
-                android:id="@+id/btn_show"
+                android:id="@+id/btn_gyro"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:background="@drawable/show" />
+                android:background="@drawable/gyro" />
         </FrameLayout>
 
         <FrameLayout
@@ -142,7 +142,7 @@
                 android:layout_gravity="center"
                 android:background="@drawable/magic_wand" />
         </FrameLayout>
-        
+
         <FrameLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
