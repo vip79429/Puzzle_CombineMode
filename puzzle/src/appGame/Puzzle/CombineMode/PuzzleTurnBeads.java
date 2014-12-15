@@ -10,14 +10,12 @@ import android.content.DialogInterface;
 import android.graphics.Bitmap;
 import android.graphics.Matrix;
 import android.graphics.Rect;
-import android.os.Handler;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup.LayoutParams;
 import android.widget.Button;
 import android.widget.FrameLayout;
@@ -48,9 +46,7 @@ public class PuzzleTurnBeads {
 
 	private int puzzle_xdp = 70; // 拼圖鈕的dpi，這邊設定為
 	private int puzzle_ydp = 70; // 拼圖鈕的dpi，這邊設定為
-	private float dpi; // 解析度，即1dpi為多少像素
 //	private int scene_flag = 0; // 播放動畫的flag，0為目前沒動畫
-	private Handler handler; // 動畫tick的timer驅動者
 
 	private ImageView imgAnswer; // 答案圖
 	private ImageView btnBuffer; // 矩陣圖
@@ -87,12 +83,8 @@ public class PuzzleTurnBeads {
 		// 取得DPI
 		DisplayMetrics metrics = new DisplayMetrics();
 		activity.getWindowManager().getDefaultDisplay().getMetrics(metrics);
-		dpi = metrics.scaledDensity;
 		puzzle_xdp = (int) (metrics.widthPixels * 0.75 / x_count);// 取得目前x最大的dpi，均分給x_count的各拼圖鈕
 		// 設定timer
-		handler = new Handler();
-//		handler.removeCallbacks(tick); // 事件
-//		handler.postDelayed(tick, 33); // 延遲時間
 
 		activity.setContentView(R.layout.middle_trunbeads);
 
