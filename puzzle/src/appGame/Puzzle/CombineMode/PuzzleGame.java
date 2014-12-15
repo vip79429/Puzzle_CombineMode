@@ -80,6 +80,7 @@ public class PuzzleGame {
 	
 	private static SensorManager sensorManager;
 	private static SensorEventListener mySensorListener;
+	private static Sensor accelerSensor;
 	private static int gyroDelay = 0;
 	private static float gyro_x, gyro_y, gyro_z;
 	
@@ -401,13 +402,13 @@ public class PuzzleGame {
 		btnReturnTitle = (Button) activity.findViewById(R.id.btn_returntitle);
 		btnReturnTitle.setOnClickListener(onClickReturntitle);
 		
-		sensorManager = (SensorManager)activity.getSystemService(activity.SENSOR_SERVICE);  
-		final Sensor accelerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+		sensorManager = (SensorManager)activity.getSystemService(Context.SENSOR_SERVICE);  
+		accelerSensor = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
 		mySensorListener = new SensorEventListener() {  
 					@Override
 					public void onSensorChanged(SensorEvent event) {
 						// TODO Auto-generated method stub
-						Log.e("onSensorChanged", "onSensorChanged");
+//						Log.e("onSensorChanged", "onSensorChanged");
 						if (gyroDelay == 0){
 							float x = event.values[0];  
 				            float y = event.values[1];  
@@ -419,6 +420,7 @@ public class PuzzleGame {
 //				            Log.e("X Y Z", String.valueOf(x) + " " + String.valueOf(y) + " " + String.valueOf(z));
 				            gyroDelay ++;
 						}else if (gyroDelay == 15){
+//							Log.e("image_move", String.valueOf(image_move));
 							float x = event.values[0];  
 				            float y = event.values[1];  
 				            float z = event.values[2];   
@@ -974,8 +976,11 @@ public class PuzzleGame {
 				return;
 			handler.removeCallbacks(tick);
 			scene_flag = 0;
+			sensorManager.unregisterListener(mySensorListener);
 			new PuzzleGame(x_count, y_count, activity, returnTitle);
 			game_start(puzzle_goal);
+			if (gyroEnable)
+				sensorManager.registerListener(mySensorListener, accelerSensor, SensorManager.SENSOR_DELAY_UI);
 		}
 	};
 
@@ -988,6 +993,7 @@ public class PuzzleGame {
 	public static void exitGame(){
 		sensorManager.unregisterListener(mySensorListener);
 		gyroEnable = false;
+		image_move = false;
 		Log.e("unregisterListener", "unregisterListener");
 	}
 

@@ -698,7 +698,7 @@ public class PuzzleActivity extends Activity {
 					Log.e("bitmapBuffer gc", "bitmapBuffer gc");
 				}
 			}else if (x_count == 4  && specialMode == 2){
-				if (PuzzleTwoLayer.puzzle_goal != null  //Âà¯]
+				if (PuzzleTwoLayer.puzzle_goal != null  //Âù¼h
 				&& !PuzzleTwoLayer.puzzle_goal.isRecycled()) {
 					PuzzleTwoLayer.puzzle_goal.recycle();
 					PuzzleTwoLayer.puzzle_goal = null;
